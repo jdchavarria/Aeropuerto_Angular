@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-md-12  py-5">
+            <h2 class="text-center mb-4 text-white">Register Form</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header text-center" style="background-color: #00AA9E;">
+                                <h3 class="mb-0 my-2">Register Flights</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" autocomplete="off">
+                                    <label for="inputName">Places</label>
+                                    <div class="form-row mb-4">
+                                    <!-- origen -->
+                                        <div class="col">
+                                            <label for="inputEmail">Origen  del Vuelo</label>
+                                            <div class="content-select">
+                                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="selector" [(ngModel)]="seleccion">
+                                                   <option *ngFor="let aero of aeropuerto" value="{{aero.id_aeropuerto}}">
+                                                        {{aero.nombre}}
+                                                   </option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <!-- DESTINO -->
+                                        <div class="col">
+                                            <label for="inputEmail">Destino  del Vuelo</label>
+                                            <div class="content-select">
+                                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="selector2" [(ngModel)]="seleccion2">
+                                                   <option *ngFor="let aero of aeropuerto" value="{{aero.id_aeropuerto}}">
+                                                        {{aero.nombre}}
+                                                   </option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- HORARIOS -->
+                                    <div class="form-row mb-4">
+                                        <div class="col">
+                                            <label for="inputUsername">Horario Salida</label>
+                                            <input type="datetime" class="form-control" name="salida" [(ngModel)]="vuelito.hora_salida" placeholder="Hora salida" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputAddress">Horario Llegada</label>
+                                            <input type="datetime" name="bday"  class="form-control" [(ngModel)]="vuelito.hora_llegada" placeholder="Hora llegada" required>
+                                        </div>
+                                    </div>
+                                    <!-- ESTADO VUELO -->
+                                    <div class="form-group">
+                                        <label for="inputAddress">Estado Vuelo</label>
+                                        <input type="number" class="form-control" name="estado" [(ngModel)]="vuelito.id_estado_v" placeholder="estado Vuelo" required="">
+                                    </div> 
+                                    <!-- Avion Seleccionado -->
+                                    <div class="form-group">
+                                        <label for="inputAddress">Avion</label>
+                                        <input type="number" class="form-control" name="avion" [(ngModel)]="vuelito.id_avion" placeholder="ingrese id avion" required="">
+                                    </div> 
+                                    <!-- Precio -->
+                                    <div class="form-group">
+                                        <label for="inputAddress">Precio</label>
+                                        <input type="number" class="form-control" name="precio" [(ngModel)]="vuelito.precio" placeholder="Precio Vuelo" required="">
+                                    </div>  
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-primary btn-lg float-" (click)="save()" >Register</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+</div>
+

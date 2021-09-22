@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-md-12  py-5">
+            <h2 class="text-center mb-4 text-white">Register Form</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header text-center" style="background-color: #00AA9E;">
+                                <h3 class="mb-0 my-2">Creación de boleto</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" autocomplete="off">
+                                    <!-- ESTADO VUELO -->
+                                    <div class="form-group">
+                                        <label for="inputEmail">Vuelo</label>
+                                        <div class="content-select">
+                                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" (change)="obtenerAsientos($event.target.value)">
+                                                <option selected>Seleccionar vuelo</option>
+                                                <option *ngFor="let vuelo of VectorVuelos" 
+                                                     [value]= "[vuelo.id_avion, vuelo.id_vuelo, vuelo.precio]">
+                                                    Salida: {{vuelo.salida}} | Llegada: {{vuelo.llegada}} | Q.{{vuelo.precio}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Avion Seleccionado -->
+                                    <div class="form-group">
+                                        <label for="inputPhone">Asiento</label>
+                                        <div class="content-select">
+                                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" (change)="calcularTotalPrecio($event.target.value)">
+                                                <option selected>Seleccionar asiento</option>
+                                                <option *ngFor="let asiento of VectorAsientos" 
+                                                     [value]= "[asiento.id_asiento, asiento.porcentaje]">
+                                                    Nombre: {{asiento.nombre_}} | Clase: {{asiento.nombre_clase}} | % agregado: {{100*asiento.porcentaje}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Precio -->
+                                    <div class="form-group">
+                                        <label for="inputAddress">Precio total</label>
+                                        <input type="number" class="form-control" name="precio" placeholder="Precio Total" [(ngModel)]="total_precio"   required="" readonly>
+                                    </div>  
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-primary btn-lg float-" (click)="generarBoleto()" >Crear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+</div>

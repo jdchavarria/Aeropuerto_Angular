@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/img/silueta.png" width="45"  height="45" alt="" class="imagenre">
+    </a>
+      <a class="navbar-brand" routerLink="/">Aerolinea</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse  justify-content-end " id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li *ngIf ="esconder.registrarVuelos" class="nava-item">
+            <a class="nav-link active" aria-current="page" routerLink="vuelos/add">Registrar Vuelos</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" routerLink="mostar/vuelos">Listar Vuelos</a>
+           </li>
+           <li *ngIf ="esconder.registrarAeropuertos" class="nav-item">
+            <a class="nav-link" routerLink="aeropuerto/add">Registrar Aeropuertos</a>
+           </li>
+           <li *ngIf ="esconder.registrarAeropuertos" class="nav-item">
+            <a class="nav-link" routerLink="mostrar/factura">Detalle Facturas</a>
+           </li>
+           <li *ngIf ="esconder.administrar" class="nav-item">
+            <a class="nav-link" routerLink="login">Administrar</a>
+           </li>
+           <li *ngIf ="esconder.salir" class="nav-item">
+            <a class="nav-link" (click)="salirSesion()" routerLink="principal">Salir</a>
+           </li>
+        </ul>
+      </div>
+
+
+  </div>
+</nav>
